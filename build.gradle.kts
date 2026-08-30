@@ -3,6 +3,7 @@ import net.imperiummc.gradle.RemoteRepository
 plugins {
     id("net.imperium-mc.conventions.base")
     `kotlin-dsl`
+    `maven-publish`
 }
 
 dependencies {
