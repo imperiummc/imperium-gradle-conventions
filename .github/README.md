@@ -1,7 +1,7 @@
 # imperium-gradle-conventions
 
-<a rel="noreferrer" target="_blank" href="https://maven.imperium-mc.net/#/external/net/imperium-mc/conventions/imperium-gradle-conventions">
-    <img src="https://maven.imperium-mc.net/api/badge/latest/external/net/imperium-mc/conventions/imperium-gradle-conventions?color=40c14a&name=imperium-gradle-conventions" alt="Latest version badge">
+<a rel="noreferrer" target="_blank" href="https://maven.imperium-mc.net/#/external/net/imperium-mc/imperium-gradle-conventions">
+    <img src="https://maven.imperium-mc.net/api/badge/latest/external/net/imperium-mc/imperium-gradle-conventions?color=40c14a&name=imperium-gradle-conventions" alt="Latest version badge">
 </a>
 
 `settings.gradle.kts`
