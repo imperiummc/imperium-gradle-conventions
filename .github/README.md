@@ -15,7 +15,7 @@ pluginManagement {
 }
 
 plugins {
-    id("net.imperium-mc.conventions") version "<VERSION>"
+    id("net.imperium-mc.conventions") version "1.0.0"
 }
 ```
 
@@ -23,6 +23,7 @@ plugins {
 
 ```kotlin
 plugins {
-    id("net.imperium-mc.conventions.java") version "<VERSION>"
+    id("net.imperium-mc.conventions.java")
+    id("net.imperium-mc.conventions.publishing")
 }
 ```
