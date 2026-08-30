@@ -15,6 +15,8 @@ jobs:
     env:
       ORG_GRADLE_PROJECT_imperiumExternalUsername: ${{ secrets.MAVEN_IMPERIUM_EXTERNAL_USERNAME }}
       ORG_GRADLE_PROJECT_imperiumExternalPassword: ${{ secrets.MAVEN_IMPERIUM_EXTERNAL_PASSWORD }}
+      ORG_GRADLE_PROJECT_imperiumInternalUsername: ${{ secrets.MAVEN_IMPERIUM_INTERNAL_USERNAME }}
+      ORG_GRADLE_PROJECT_imperiumInternalPassword: ${{ secrets.MAVEN_IMPERIUM_INTERNAL_PASSWORD }}
     steps:
       - name: git / setup
         uses: actions/checkout@v7
