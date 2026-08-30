@@ -1,7 +1,7 @@
 import net.imperiummc.gradle.RemoteRepository
 
 plugins {
-    id("net.imperium-mc.conventions.base")
+    id("net.imperium-mc.conventions.base") version "1.0.0"
     `kotlin-dsl`
     `maven-publish`
 }

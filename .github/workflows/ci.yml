@@ -1,13 +1,9 @@
 name: CI
 
-on: [ push, workflow_dispatch ]
+on: [push, workflow_dispatch]
 
 permissions:
   contents: read
-
-env:
-  ORG_GRADLE_PROJECT_imperiumExternalUsername: ${{ secrets.MAVEN_IMPERIUM_EXTERNAL_USERNAME }}
-  ORG_GRADLE_PROJECT_imperiumExternalPassword: ${{ secrets.MAVEN_IMPERIUM_EXTERNAL_PASSWORD }}
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -37,3 +33,6 @@ jobs:
       - name: gradle / publish
         if: github.event_name != 'pull_request' && (startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/trunk')
         run: ./gradlew publishAllPublicationsToImperiumExternalRepository
+        env:
+          ORG_GRADLE_PROJECT_imperiumExternalUsername: ${{ secrets.IMPERIUM_EXTERNAL_USERNAME }}
+          ORG_GRADLE_PROJECT_imperiumExternalPassword: ${{ secrets.IMPERIUM_EXTERNAL_PASSWORD }}
