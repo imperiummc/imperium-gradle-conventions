@@ -1,5 +1,7 @@
+import net.imperiummc.gradle.RemoteRepository
+
 plugins {
-    id("net.imperium-mc.conventions.publishing")
+    id("net.imperium-mc.conventions.base")
     `kotlin-dsl`
 }
 
@@ -18,6 +20,12 @@ java {
 
 kotlin {
     jvmToolchain(25)
+}
+
+publishing {
+    repositories {
+        RemoteRepository.IMPERIUM_EXTERNAL.addAuthenticatedTo(this)
+    }
 }
 
 fun DependencyHandlerScope.plugin(plugin: Provider<PluginDependency>) =
