@@ -1,0 +1,39 @@
+name: CI
+
+on: [push, workflow_dispatch]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      ORG_GRADLE_PROJECT_imperiumExternalUsername: ${{ secrets.MAVEN_IMPERIUM_EXTERNAL_USERNAME }}
+      ORG_GRADLE_PROJECT_imperiumExternalPassword: ${{ secrets.MAVEN_IMPERIUM_EXTERNAL_PASSWORD }}
+    steps:
+      - name: git / setup
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: java / setup
+        uses: actions/setup-java@v5
+        with:
+          check-latest: true
+          distribution: temurin
+          java-version: 25
+
+      - name: gradle / setup
+        uses: gradle/actions/setup-gradle@v6
+
+      - name: gradle / build
+        run: ./gradlew build
+
+      - name: gradle / publish
+        run: ./gradlew publishAllPublicationsToImperiumExternalRepository
